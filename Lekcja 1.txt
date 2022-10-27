@@ -1,0 +1,13 @@
+Komendy:
+CREATE TABLE postac(id_postaci INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nazwa VARCHAR(50), rodzaj ENUM('wiking', 'ptak', 'kobieta'), wiek INT UNSIGNED);
+INSERT INTO postac (nazwa, rodzaj, data_ur, wiek)  VALUES ('Bjorn', 'wiking', '2000-02-02', 22);
+INSERT INTO postac (nazwa, rodzaj, data_ur, wiek) VALUES ('Drozd', 'ptak', '2002-02-03', 33);
+UPDATE postac SET wiek=89 WHERE id_postaci=3;
+UPDATE postac SET wiek=88 WHERE wiek=100;
+SELECT * FROM walizka;
+ALTER TABLE walizka AUTO_INCREMENT = 1;
+ALTER TABLE walizka ALTER kolor SET DEFAULT 'rozowy';
+INSERT INTO walizka (pojemnosc, id_wlasciciela) VALUES (25, 1);
+INSERT INTO walizka (pojemnosc, id_wlasciciela) VALUES (25, 3);
+CREATE TABLE walizka(id_walizki INT NOT NULL PRIMARY KEY AUTO_INCREMENT, pojemnosc INT UNSIGNED, kolor ENUM=('rozowy','czerwony','teczowy','zolty'), id_wlasciciela INT, FOREIGN KEY (id_wlasciciela) REFERENCES postac(id_postaci) ON DELETE CASCADE);
+CREATE TABLE izba(adres_budynku INT NOT NULL AUTO_INCREMENT, nazwa_izby INT NOT NULL, metraz INT UNSIGNED, wlasciciel INT NULL, FOREIGN KEY(wlasciciel) REFERENCES postac(id_postaci), PRIMARY KEY (adres_budynku, nazwa_izby));
