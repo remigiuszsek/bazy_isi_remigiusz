@@ -1,0 +1,30 @@
+CREATE TABLE przetwory(id_przetworu INT PRIMARY KEY, rok_produkcji int(4) DEFAULT 1954, id_wykonawcy INT, FOREIGN KEY (id_wykonawcy) REFERENCES postac (id_postaci), zawartosc VARCHAR(20), dodatek varchar(20) default "papryczka chilli", id_konsumenta INT, FOREIGN KEY (id_konsumenta) REFERENCES postac (id_postaci));
+INSERT INTO przetwory VALUES (1, 1200, 1, "bigos",default, 3);
+
+INSERT INTO postac VALUES (DEFAULT, "Thor", "wiking", "1134-04-12", 43),(DEFAULT, "Odyn", "wiking", "1154-04-12", 23), (DEFAULT, "Loki"," wiking", "1130-01-12",13),(DEFAULT, "Helga",
+ " wiking", "1124-02-12",53) ,(DEFAULT, "Thorfin", " wiking", "1114-03-12",63)
+ 
+CREATE TABLE statek (nazwa_statku varchar(30) PRIMARY KEY, rodzaj_statku ENUM("dobry", "lepszy", "najlepszy"), data_wodowania DATE, max_ladownosc INT UNSIGNED);
+ 
+INSERT INTO statek VALUES ("Czarna Perla","dobry", "1100-10-10",300),("Latajacy Holender","lepszy","1111-11-11",311);
+ 
+ALTER TABLE postac ADD COLUMN funkcja VARCHAR(40);
+UPDATE postac SET funkcja = "kapitan" WHERE nazwa="Bjorn";
+ALTER TABLE postac ADD COLUMN statek varchar(30); 
+ALTER TABLE postac ADD FOREIGN KEY (statek) REFERENCES statek(nazwa_statku);
+
+UPDATE postac SET statek="Czarna Perla" WHERE nazwa="Bjorn";
+
+UPDATE postac SET statek="Czarna Perla" WHERE nazwa="Drozd";
+
+UPDATE postac SET statek="Czarna Perla" WHERE nazwa="Thor";
+
+UPDATE postac SET statek="Czarna Perla" WHERE nazwa="Thorfin";
+
+UPDATE postac SET statek="Latajacy Holender" WHERE nazwa="Odyn";
+
+UPDATE postac SET statek="Latajacy Holender" WHERE nazwa="Loki";
+
+DELETE FROM izba WHERE nazwa_izby="spizarnia";
+
+DROP TABLE izba;
