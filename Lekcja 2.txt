@@ -14,3 +14,4 @@ ALTER TABLE postac MODIFY rodzaj ENUM('wiking', 'ptak', 'kobieta', 'syrena');
 UPDATE postac SET id_postaci=7 WHERE nazwa='Gertruda Nieszczera';
 UPDATE postac SET statek='Czarna Perla' WHERE nazwa LIKE '%a%';
 UPDATE statek SET max_ladownosc=max_ladownosc*0.3 WHERE data_wodowania > '1900-12-31';
+UPDATE statek SET max_ladownosc=max_ladownosc*0.3 WHERE data_wodowania < '2000-01-01';
