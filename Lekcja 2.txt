@@ -1,1 +1,16 @@
+DELETE FROM postac WHERE nazwa="Thor";
+DELETE FROM postac WHERE nazwa="Loki";
+ALTER TABLE walizka DROP FOREIGN KEY walizka_ibfk_1;
+ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_1;
+ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_2;
+ALTER TABLE postac MODIFY id_postaci INT;
+ALTER TABLE postac DROP PRIMARY KEY;
 
+ALTER TABLE postac ADD COLUMN pesel char(11) NOT NULL FIRST;
+ALTER TABLE postac ALTER COLUMN pesel SET DEFAULT '12345678901';
+UPDATE postac SET pesel='02048567847' WHERE id_postaci=1;
+ALTER TABLE postac ADD PRIMARY KEY (pesel);
+ALTER TABLE postac MODIFY rodzaj ENUM('wiking', 'ptak', 'kobieta', 'syrena');
+UPDATE postac SET id_postaci=7 WHERE nazwa='Gertruda Nieszczera';
+UPDATE postac SET statek='Czarna Perla' WHERE nazwa LIKE '%a%';
+UPDATE statek SET max_ladownosc=max_ladownosc*0.3 WHERE data_wodowania > '1900-12-31';
