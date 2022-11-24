@@ -1,1 +1,2 @@
 #Zadanie 1
+SELECT AVG(waga) FROM kreatura WHERE rodzaj="wiking";
