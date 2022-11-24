@@ -18,3 +18,5 @@ SELECT * FROM kreatura ORDER BY dataUr ASC LIMIT 5;
 SELECT DISTINCT rodzaj FROM zasob;
 SELECT CONCAT(nazwa, '-', rodzaj) FROM kreatura WHERE rodzaj LIKE 'wi%';
 SELECT CONCAT(nazwa, '-', waga*ilosc) FROM zasob WHERE YEAR(dataPozyskania) BETWEEN 2000 AND 2007;
+SELECT SUM(waga*ilosc*0.7) FROM zasob WHERE rodzaj="jedzenie";
+SELECT SUM(waga*ilosc*0.3) FROM zasob WHERE rodzaj="jedzenie";
