@@ -11,3 +11,9 @@ SELECT * FROM kreatura WHERE rodzaj!="wiedzma AND udzwig >= 50;
 SELECT * FROM zasob WHERE waga BETWEEN 2 AND 5;
 SELECT * FROM kreatura WHERE nazwa LIKE '%or%' AND udzwig BETWEEN 30 AND 70;
 SELECT * FROM zasob WHERE MONTH(dataPozyskania)=7 OR MONTH(dataPozyskania)=8;
+SELECT * FROM zasob ORDER BY waga ASC;
+SELECT * FROM kreatura ORDER BY dataUr ASC LIMIT 5;
+
+#Zadanie 3
+SELECT DISTINCT rodzaj FROM zasob;
+SELECT CONCAT(nazwa, '-', rodzaj) FROM kreatura WHERE rodzaj LIKE 'wi%';
