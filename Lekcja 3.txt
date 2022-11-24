@@ -20,3 +20,5 @@ SELECT CONCAT(nazwa, '-', rodzaj) FROM kreatura WHERE rodzaj LIKE 'wi%';
 SELECT CONCAT(nazwa, '-', waga*ilosc) FROM zasob WHERE YEAR(dataPozyskania) BETWEEN 2000 AND 2007;
 SELECT SUM(waga*ilosc*0.7) FROM zasob WHERE rodzaj="jedzenie";
 SELECT SUM(waga*ilosc*0.3) FROM zasob WHERE rodzaj="jedzenie";
+SELECT DISTINCT nazwa FROM zasob WHERE rodzaj IS NULL;
+SELECT DISTINCT nazwa FROM zasob WHERE nazwa LIKE 'Ba%' OR nazwa LIKE '%os' ORDER BY nazwa ASC;
