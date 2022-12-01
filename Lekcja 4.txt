@@ -2,3 +2,5 @@
 SELECT AVG(waga) FROM kreatura WHERE rodzaj="wiking";
 SELECT rodzaj, AVG(waga), COUNT(rodzaj) FROM kreatura GROUP BY rodzaj;
 SELECT rodzaj, FLOOR(AVG(YEAR(CURDATE()) - YEAR(dataUr))) FROM kreatura GROUP BY rodzaj;
+
+#Zadanie 2
