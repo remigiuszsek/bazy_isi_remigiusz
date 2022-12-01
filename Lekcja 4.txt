@@ -4,3 +4,4 @@ SELECT rodzaj, AVG(waga), COUNT(rodzaj) FROM kreatura GROUP BY rodzaj;
 SELECT rodzaj, FLOOR(AVG(YEAR(CURDATE()) - YEAR(dataUr))) FROM kreatura GROUP BY rodzaj;
 
 #Zadanie 2
+SELECT nazwa, SUM(waga) FROM zasob GROUP BY nazwa;
