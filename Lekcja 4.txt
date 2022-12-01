@@ -7,3 +7,6 @@ SELECT rodzaj, FLOOR(AVG(YEAR(CURDATE()) - YEAR(dataUr))) FROM kreatura GROUP BY
 SELECT rodzaj, SUM(waga) FROM zasob GROUP BY rodzaj;
 SELECT nazwa, AVG(waga) FROM zasob WHERE ilosc>4 GROUP BY nazwa HAVING AVG(waga)>10;
 SELECT rodzaj, COUNT(DISTINCT nazwa) FROM zasob GROUP BY rodzaj HAVING MIN(ilosc)>1;
+
+#Zadanie 3
+SELECT nazwa, SUM(ilosc) FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury GROUP BY nazwa;
