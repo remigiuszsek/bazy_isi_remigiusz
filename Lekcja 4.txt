@@ -12,3 +12,9 @@ SELECT rodzaj, COUNT(DISTINCT nazwa) FROM zasob GROUP BY rodzaj HAVING MIN(ilosc
 SELECT nazwa, SUM(ilosc) FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury GROUP BY nazwa;
 SELECT kreatura.nazwa, zasob.nazwa FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury INNER JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu;
 SELECT kreatura.nazwa, kreatura.idKreatury, ekwipunek.idKreatury FROM kreatura LEFT JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury WHERE ekwipunek.idKreatury is NULL;
+
+#Zadanie 4
+SELECT kreatura.nazwa, zasob.nazwa FROM kreatura NATURAL JOIN ekwipunek INNER JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu WHERE YEAR(kreatura.dataUr) BETWEEN 1670 AND 1680;
+SELECT kreatura.nazwa FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury INNER JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu WHERE zasob.rodzaj = 'jedzenie' ORDER BY kreatura.dataUr DESC LIMIT 5;
+SELECT kreatura.nazwa, kreatura2.nazwa FROM kreatura INNER JOIN kreatura kreatura2 ON kreatura2.idKreatury - kreatura.idKreatury = 5;
+
