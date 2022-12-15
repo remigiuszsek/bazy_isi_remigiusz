@@ -20,3 +20,4 @@ SELECT kreatura.nazwa, kreatura2.nazwa FROM kreatura INNER JOIN kreatura kreatur
 
 #Zadanie 5
 SELECT kreatura.rodzaj, SUM(ekwipunek.ilosc), AVG(ekwipunek.ilosc*zasob.waga) FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury INNER JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu WHERE kreatura.rodzaj NOT IN ('malpa', 'waz') GROUP BY 1 HAVING SUM(ekwipunek.ilosc)<30;
+
